@@ -18,15 +18,20 @@ module.exports = {
         liveReload: true,   
     },
     resolve: {  // extensions to consider in the bundle
-        extensions: ['.js', '.jsx', '.json']
+        extensions: ['.js', '.jsx', '.json', '.tsx', '.ts']
     },
     module: {   // How to handle different files,
         rules: [
             {
-                test: /\.(js|jsx)$/,    // is this JS or JSX?
+                test: /\.jsx?$/,    // is this JS or JSX?
                 exclude: /node_modules/,    // pls ignore the black hole
                 use: 'babel-loader' // use this loader then, 
-            }
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
     },
     plugins: [] // extra stuff
