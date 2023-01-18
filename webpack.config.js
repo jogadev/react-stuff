@@ -18,7 +18,7 @@ module.exports = {
         liveReload: true,   
     },
     resolve: {  // extensions to consider in the bundle
-        extensions: ['.js', '.jsx', '.json', '.tsx', '.ts']
+        extensions: ['.js', '.jsx', '.json', '.tsx', '.ts', '.scss', '.css']
     },
     module: {   // How to handle different files,
         rules: [
@@ -32,6 +32,10 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.s?css$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }
         ]
     },
     plugins: [] // extra stuff
